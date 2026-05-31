@@ -32,3 +32,19 @@ Example:
 
 Target Sequence: 1110
 When the detector receives the sequence 1110, the output signal is asserted.
+
+## Methodology
+State Definition
+
+Each state represents the amount of the target sequence that has been successfully matched.
+
+Example:
+
+State	Meaning
+S0	No bits matched
+S1	First bit matched
+S2	First two bits matched
+S3	First three bits matched
+S4	Sequence detected
+
+
