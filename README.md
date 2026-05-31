@@ -13,3 +13,22 @@ Combinational logic
 Sequential logic
 D Flip-Flops
 Hardware implementation of pattern recognition
+
+
+## Objective
+
+The objective of this project is to design and implement a sequence detector that:
+
+Monitors a serial binary input stream
+Detects a specified bit pattern
+Generates an output when the pattern is recognized
+Utilizes a finite state machine architecture
+Demonstrates the relationship between state diagrams, state tables, and hardware implementation
+Differences between designing physical systems and designing FSM based on state memory
+
+## Target Sequence
+
+Example:
+
+Target Sequence: 1110
+When the detector receives the sequence 1110, the output signal is asserted.
