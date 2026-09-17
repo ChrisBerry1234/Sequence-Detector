@@ -14,7 +14,7 @@ end entity;
 -- =========================  
 architecture Seq_Detector_arch of Seq_Detector is 
   --Declarations
-  subtype State_Type of std_Logic; 
+  subtype State_Type of std_Logic_vector(2 downto 0); 
   -- defining states using binary encoding 
   constant Start: State_Type    := '000';
   constant D0_IS_1: State_Type  := '001';
