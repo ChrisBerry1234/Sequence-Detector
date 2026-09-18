@@ -25,6 +25,60 @@ architecture Seq_Detector_arch of Seq_Detector is
   --define signals for next_state and current_state for State Memory connecting to next_state_logic and output_logic
  signal next_state, current_state : State_Type;
 
+ begin 
+
+   STATE_MEMORY: process (Clock, Reset)
+     begin 
+       --Highest Priority
+       if Reset = '0' then 
+         current_state <= Start;
+       elsif rising_edge(Clock)
+       end if;
+     end process;
+
+
+  NEXT_STATE_LOGIC: process (Din, current_state)
+         begin
+           --FSM Traversal, Must Know what state we are currently in
+           case(current_state) is 
+               when(Start) =>
+                   if (Din = '1') then 
+                     next_state <= D0_IS_1;
+                   else
+                     next_state <= D0_NOT_1;
+                   end if;
+  
+               when(D0_IS_1) =>
+                    if(Din = '1') then 
+                      next_state <= D1_IS_1;
+                    else 
+                      next_state <= D1_NOT_1;
+                    end if;
+  
+               when(D1_IS_1) =>
+                   if(Din = '1') then 
+                     next_state <= Start;  -- sequence complete or reset path
+  
+              when(D0_NOT_1) =>
+                   --regardless of input, just traverse to next state
+                     next_state <= D1_NOT_1;
+  
+              when(D1_NOT_1) =>
+                     next_state <= Start;
+        end case; 
+      end process; 
+
+
+  
+               
+
+                  
+             
+
+   
+
 end architecture; 
+
+
   
 
