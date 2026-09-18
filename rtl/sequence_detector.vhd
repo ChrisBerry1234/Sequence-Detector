@@ -68,16 +68,24 @@ architecture Seq_Detector_arch of Seq_Detector is
         end case; 
       end process; 
 
+  OUTPUT_STATE_LOGIC: process(current_state, Din)
+             begin 
+               case(current_state)
+                   when(D1_IS_1) =>
+                      if(Din = '1') then
+                        ERR <= '1';
+                      else 
+                        ERR <= '0'L
+                      end if;
 
-  
-               
+                  when others => 
+                        ERR <= '0';
 
-                  
-             
+              end case;
+            end process; 
+                     
 
-   
-
-end architecture; 
+  end Seq_Detector_arch; 
 
 
   
